@@ -6,5 +6,5 @@ const pool = new Pool({
 })
 
 pool.on('connect', ()=>console.log('connected to db'))
-// await pool.query('SELECT 1'); 
+
 export default pool
