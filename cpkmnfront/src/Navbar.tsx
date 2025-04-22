@@ -4,8 +4,8 @@ export default function Navbar() {
   console.log('navbar rendered');
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
+      <Link to="/">Customizer</Link>
+      <Link to="/customizer">Customized Pokemon</Link>
     </nav>
   )
 }
