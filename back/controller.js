@@ -17,4 +17,11 @@ controller.getPokemon = async (req,res, next) =>{
     }
 }
 
+controller.postPokemon = async (req, res, next) =>{
+    console.log(req)
+    // console.log(req);
+    // const query = 
+next()
+}
+
 export default controller

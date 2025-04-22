@@ -6,14 +6,14 @@ dotenv.config()
 const app = express();
 const PORT = process.env.PORT;
 import router from './routes.js'
-app.use(express.json());//for req.bodies to exist
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 app.use('/', router);
 
 
 // app.get('/yo', (req, res) =>{res.send('hello from server');})
-// catch-all route handler for any requests to an unknown route
+
 app.use((req, res) => res.status(404).send('unknown page'));
 
 /**
