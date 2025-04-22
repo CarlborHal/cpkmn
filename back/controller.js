@@ -1,5 +1,7 @@
 import express from 'express'
 const controller = {};
+import pool from './db.js'
+
 
 controller.getPokemon = async (req,res, next) =>{
 
@@ -18,10 +20,15 @@ controller.getPokemon = async (req,res, next) =>{
 }
 
 controller.postPokemon = async (req, res, next) =>{
-    console.log(req)
-    // console.log(req);
-    // const query = 
-next()
+    console.log(req.body)
+    const text = "INSERT INTO pokemon (name, nickname, move1, move2, move3, move4) VALUES($1, $2, $3, $4, $5, $6)"
+    // const text = "INSERT INTO pokemon (name, nickname, move1, move2, move3, move4) VALUES($1, $2, $3, $4, $5, $6)"
+    const values = [req.body.name, req.body.nickname, req.body.move1, req.body.move2, req.body.move3, req.body.move4] 
+    // ('mudkip','piruk','water','fire','blah','d')
+    res.locals.upload = await pool.query(text, values);
+    console.log(res.locals.upload);
+
+return next()
 }
 
 export default controller

@@ -9,10 +9,10 @@ async function handleSubmit (event){
     const formObject = Object.fromEntries(formData.entries())
     // console.log(formObject);
     //now need to build express await 
-    const body = JSON.stringify(formObject)
+    formObject.name = props.name;
     const poster = await fetch(`http://localhost:3000/create`,{
         method: "POST",
-        // headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(formObject)
     })
     console.log(JSON.stringify(formObject))

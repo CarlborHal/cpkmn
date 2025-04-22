@@ -6,6 +6,7 @@ dotenv.config()
 const app = express();
 const PORT = process.env.PORT;
 import router from './routes.js'
+import pool from './db.js'
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors())
