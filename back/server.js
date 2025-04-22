@@ -1,11 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config()
+
 const app = express();
 const PORT = process.env.PORT;
 import router from './routes.js'
 app.use(express.json());//for req.bodies to exist
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 app.use('/', router);
 
 
