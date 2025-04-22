@@ -1,23 +1,27 @@
 import {useState} from 'react';
 import PokeDisplay from './pokeDisplay.tsx';
 
-export default function pkForm() {
-  const [name, setName] = useState({});
+export default function PkForm() {
+  const [pokemon, setPokemon] = useState('');
+  const [data, setData] = useState({})
   const fetchPokemon = async (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${name}`)
-    const pkmn:Response = await fetch(`http://localhost:3000/?name=${name}`);
-    const pkmnJSON= await pkmn.json();
+    alert(`The name you entered was: ${pokemon}`)
+    const pkmn:Response = await fetch(`http://localhost:3000/?name=${pokemon}`);
+    const pkmnJSON= await pkmn.json();//awaits dont return strings as i thought, or even normal objects. Response type god dammit struggled a lot
+    //and therefore we dont' use json.parse we use object.json();
     // console.log(pkmnJSON)
+    //react router
+    //components MUST BE CAPITALIZED IT IS NOT A CONVENTION
     const picks:{[key:string]: string} = {
       sprite : pkmnJSON.sprites.front_default,
       name : pkmnJSON.name
     }
-    setName(picks);
+    setData(picks);
 
-    console.log(picks.sprite);
   }
 
+  // console.log(data);
   // fetch is working. now:
   //make state object to track an array, where pokemon goes
   //and then map that into components, each containing:
@@ -28,12 +32,11 @@ export default function pkForm() {
     <form onSubmit={fetchPokemon}>
       <input
         id="pkmn-puller"
-        value={name}
-        onChange={e => setName(e.target.value)}
+        onChange={e => setPokemon(e.target.value)}
       />
       <button id='button' type="submit">Get Pokemon</button>
     </form>
-    {/* <PokeDisplay image = /> */}
+    <PokeDisplay props={data}/>
 
   </div>
 );
