@@ -12,7 +12,10 @@ export default function PkForm() {
   const fetchPokemon = async (event: FormEvent<HTMLFormElement>) => {;
     event.preventDefault()
     console.log('hi')
-    const pkmn:Response = await fetch(`http://localhost:3000/?name=${pokemon}`);
+    const pkmn:Response = await fetch(`http://localhost:3000/?name=${pokemon}`,
+      {method:'GET',
+      credentials: 'include'}
+    );
     const pkmnJSON = await pkmn.json();
     const pkmnJSONclean = pkmnJSON as pkmnDetails;
     

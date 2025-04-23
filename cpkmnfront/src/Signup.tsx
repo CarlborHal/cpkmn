@@ -8,6 +8,7 @@ export default function Login() {
         await fetch('http://localhost:3000/signup',{
           method: 'POST',
           headers: {"Content-Type": "application/json"},
+          credentials: 'include',
           body: JSON.stringify(formObject)
         })
     }

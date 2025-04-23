@@ -6,7 +6,10 @@ export default function Customized() {
 
   useEffect( () =>{
     const getPkmn = async () => {
-    const data = await fetch('http://localhost:3000/customized');
+    const data = await fetch('http://localhost:3000/customized', {
+      method:'GET',
+      credentials: 'include'
+    });
     const customPkmn = await data.json();
      setPiruk(customPkmn);
 

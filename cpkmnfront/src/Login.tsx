@@ -7,9 +7,11 @@ export default function Login() {
         console.log(formObject)
         await fetch('http://localhost:3000/login',{
           method: 'POST',
+          credentials: 'include',
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(formObject)
         })
+
     }
   return (
     <div>

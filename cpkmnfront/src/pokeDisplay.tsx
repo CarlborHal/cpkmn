@@ -19,6 +19,7 @@ async function handleSubmit (event: React.FormEvent<HTMLFormElement>){
     await fetch(`http://localhost:3000/create`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
+        credentials: 'include',
         body: JSON.stringify(formObject)
     })
     // console.log(JSON.stringify(formObject))
