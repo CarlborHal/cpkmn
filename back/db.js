@@ -5,6 +5,6 @@ const pool = new Pool({
     connectionString: process.env.SQL_DATABASE,
 })
 
-pool.on('connect', ()=>console.log('connected to db'))
+pool.on('connect', () => console.log('connected to db'))
 
 export default pool

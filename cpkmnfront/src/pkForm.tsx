@@ -6,7 +6,6 @@ export default function PkForm() {
   const [data, setData] = useState({})
   const fetchPokemon = async (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${pokemon}`)
     const pkmn:Response = await fetch(`http://localhost:3000/?name=${pokemon}`);
     const pkmnJSON= await pkmn.json();//awaits dont return strings as i thought, or even normal objects. Response type god dammit struggled a lot
     //and therefore we dont' use json.parse we use object.json();

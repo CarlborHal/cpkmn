@@ -1,11 +1,28 @@
-import React from 'react'
-import Customize from './Customize'
+import React, { useState, useEffect } from 'react'
+import Custompkmn from './Custompkmn'
 export default function Customized() {
     
+  const [piruk,setPiruk] =useState([]);
+
+  useEffect( () =>{
+    const getPkmn = async () => {
+    const data = await fetch('http://localhost:3000/customized');
+    const customPkmn = await data.json();
+     setPiruk(customPkmn);
+
+    }
+    getPkmn();
+
+  }, [])
+//map with customPkmn, each one will have image, moves and name
   return (
     <div>
       Hello, world!
-      {/* <Customize/> */}
+      {piruk.length}
+      {piruk.map( (elem, index) =>{
+      return <Custompkmn pokemon = {elem} key = {index}/>
+      })}
+
     </div>
   )
 }

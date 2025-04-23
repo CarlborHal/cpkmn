@@ -10,6 +10,10 @@ const router = express.Router()
 router.use(express.json());//for req.bodies to exist
 router.get('/', controller.getPokemon, (req,res) =>res.json(res.locals.pkmn))
 
+router.get('/customized', controller.getCustomPokemon, (req,res) =>res.json(res.locals.pkmn))
+
+
+
 router.post('/create', controller.postPokemon, (req,res) =>res.send('success'))
 
 

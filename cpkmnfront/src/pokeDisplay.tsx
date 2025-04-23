@@ -10,6 +10,7 @@ async function handleSubmit (event){
     // console.log(formObject);
     //now need to build express await 
     formObject.name = props.name;
+    formObject.sprite = props.sprite;
     const poster = await fetch(`http://localhost:3000/create`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -19,18 +20,18 @@ async function handleSubmit (event){
 }
   return (
     <div>
-      <h4>pokemon</h4>
+      <h4>Pokemon</h4>
       <img src = {props.sprite}/>
       <div>
         {props.name}
       </div>
       <form onSubmit ={handleSubmit} >
-        <input type = "text" name="nickname" /> 
-        <input type = "text" name="move1" /> 
-        <input type = "text" name="move2" /> 
-        <input type = "text" name="move3" /> 
-        <input type = "text" name="move4" /> 
-        <button type ="submit">Search</button>
+        <input type = "text" name="nickname" placeholder="Nickname"/> 
+        <input type = "text" name="move1" placeholder="move1" required/> 
+        <input type = "text" name="move2" placeholder="move2"/> 
+        <input type = "text" name="move3" placeholder="move3"/> 
+        <input type = "text" name="move4" placeholder="move4"/> 
+        <button type ="submit">Submit to API</button>
       </form>
       
     </div>
