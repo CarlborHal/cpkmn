@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './Navbar.tsx';
 import PkForm from './pkForm.tsx';
+import Signup from './Signup.tsx';
 import Customized from './CustomizedContainer.tsx';
 import { Routes, Route} from 'react-router-dom'
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <>
     <Navbar/>
       <Routes>
-        <Route path="/" element={<PkForm/>} />
+      <Route path="/signup" element={<Signup/>} />
+        <Route path="/getpkmn" element={<PkForm/>} />
         <Route path="/customizer" element={<Customized />} />
       </Routes>
     {/* <PkForm/>

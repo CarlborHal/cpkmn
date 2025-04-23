@@ -6,7 +6,8 @@ export default function Navbar() {
   // console.log('navbar rendered');
   return (
     <nav>
-      <Link to="/">Customizer</Link>
+      <Link to="/signup">signup</Link>
+      <Link to="/getpkmn">Customizer</Link>
       <Link to="/customizer">Customized Pokemon</Link>
     </nav>
 

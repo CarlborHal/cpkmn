@@ -1,6 +1,6 @@
 const controller = {};
 import pool from './db.js'
-
+import bcrypt from 'bcrypt'
 
 controller.getPokemon = async (req,res, next) =>{
 
@@ -43,7 +43,24 @@ controller.getCustomPokemon = async (req, res, next) =>{
     }
 
 
+}
 
+controller.createUser = async (req, res, next) =>{
+    //get data, run through bcrypt
+    const test = 'demo'
+    const saltRounds = 5;
+    bcrypt.hash(test, saltRounds, function(err, hash){
+        if (err){
+            console.error(err)
+            return next(err)
+        }
+      console.log(hash);
+      //send to db
+      const text = cREATE
+      await pool.query
+
+    })
+    next()
 }
 
 export default controller
