@@ -1,4 +1,3 @@
-import express from 'express'
 const controller = {};
 import pool from './db.js'
 
@@ -44,7 +43,7 @@ controller.getCustomPokemon = async (req, res, next) =>{
     }
 
 
-return next()
+
 }
 
 export default controller

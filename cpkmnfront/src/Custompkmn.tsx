@@ -1,6 +1,9 @@
+type pokemonObject = {
+  pokemon: {[key:string]:string}
+}
 
 
-export default function Customize({pokemon}) {
+export default function Customize({pokemon}:pokemonObject) {
 
   return (
     <>
