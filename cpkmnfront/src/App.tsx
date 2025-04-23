@@ -4,6 +4,7 @@ import Navbar from './Navbar.tsx';
 import PkForm from './pkForm.tsx';
 import Signup from './Signup.tsx';
 import Customized from './CustomizedContainer.tsx';
+import Login from './Login.tsx';
 import { Routes, Route} from 'react-router-dom'
 function App() {
 //will have taskbar and then a router to go between curr page and other page, with completely different functionality
@@ -16,6 +17,7 @@ function App() {
     <Navbar/>
       <Routes>
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/login" element={<Login/>} />
         <Route path="/getpkmn" element={<PkForm/>} />
         <Route path="/customizer" element={<Customized />} />
       </Routes>

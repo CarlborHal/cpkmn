@@ -47,20 +47,69 @@ controller.getCustomPokemon = async (req, res, next) =>{
 
 controller.createUser = async (req, res, next) =>{
     //get data, run through bcrypt
-    const test = 'demo'
+
     const saltRounds = 5;
-    bcrypt.hash(test, saltRounds, function(err, hash){
+    const hashedpw = await bcrypt.hash(req.body.password, saltRounds, async function(err, hash){
         if (err){
             console.error(err)
             return next(err)
         }
-      console.log(hash);
-      //send to db
-      const text = cREATE
-      await pool.query
+        const text = "INSERT INTO passwords (username, hashedpw) VALUES($1, $2) "
+        const values = [req.body.username,hash]
+        await pool.query(text, values)
+        next()
 
     })
-    next()
+
 }
 
+
+controller.createUser = async (req, res, next) =>{
+    //get data, run through bcrypt
+
+    const saltRounds = 5;
+    const hashedpw = await bcrypt.hash(req.body.password, saltRounds, async function(err, hash){
+        if (err){
+            console.error(err)
+            return next(err)
+        }
+        const text = "INSERT INTO passwords (username, hashedpw) VALUES($1, $2) "
+        const values = [req.body.username,hash]
+        await pool.query(text, values)
+        next()
+
+    })
+
+}
+
+controller.loginUser = async (req, res, next)=>{
+//req.body will have user and pw
+const text = "SELECT hashedpw FROM passwords WHERE username = ($1)"
+const values = [req.body.username]
+const toCompare = await pool.query(text,values)
+console.log(toCompare.rows[0].hashedpw);
+
+ await bcrypt.compare(req.body.password, toCompare.rows[0].hashedpw, function (err, result){
+
+    console.log(result);
+    if(result){
+
+        return next()
+    }
+    else{
+    return next(err)
+}
+
+
+
+}
+)
+// bcrypt.compare(req.body.password, )
+
+}
+
+//wehn back: implement login, with user and pw
+//on login, give cookie
+//pokemon added are sent to db with cookie as unique identifier
+//modify get request to pull with that cookie
 export default controller

@@ -12,7 +12,9 @@ router.get('/', controller.getPokemon, (req,res) =>res.json(res.locals.pkmn))
 
 router.get('/customized', controller.getCustomPokemon, (req,res) =>res.json(res.locals.pkmn))
 
-router.post('/signup', controller.createUser, (req, res) =>res.json())
+router.post('/signup', controller.createUser, (req, res) =>res.send('user created'))
+
+router.post('/login', controller.loginUser, (req, res) =>res.send('successful Login!'))
 
 router.post('/create', controller.postPokemon, (req,res) =>res.send('success'))
 

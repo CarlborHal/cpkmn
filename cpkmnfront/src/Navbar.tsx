@@ -7,6 +7,7 @@ export default function Navbar() {
   return (
     <nav>
       <Link to="/signup">signup</Link>
+      <Link to="/login">login</Link>
       <Link to="/getpkmn">Customizer</Link>
       <Link to="/customizer">Customized Pokemon</Link>
     </nav>

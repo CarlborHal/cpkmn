@@ -5,7 +5,7 @@ export default function Login() {
         const formData = new FormData(e.target);
         const formObject = Object.fromEntries(formData.entries())
         console.log(formObject)
-        await fetch('http://localhost:3000/signup',{
+        await fetch('http://localhost:3000/login',{
           method: 'POST',
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(formObject)
@@ -13,7 +13,7 @@ export default function Login() {
     }
   return (
     <div>
-      hello signup
+      hello login
       <form onSubmit = {handleSubmit}>
         <input type='text' name="username" id="username"></input>
         <input type='text' name="password" id="password"></input>
