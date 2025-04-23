@@ -10,6 +10,7 @@ export default function Navbar() {
       <Link to="/login">login</Link>
       <Link to="/getpkmn">Customizer</Link>
       <Link to="/customizer">Customized Pokemon</Link>
+      <Link to='/hackhr'>Hack Hour</Link>
     </nav>
 
   )

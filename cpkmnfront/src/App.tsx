@@ -5,7 +5,8 @@ import PkForm from './pkForm.tsx';
 import Signup from './Signup.tsx';
 import Customized from './CustomizedContainer.tsx';
 import Login from './Login.tsx';
-import { Routes, Route} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom';
+import Hackhour from './Hackhour.tsx';
 function App() {
 //will have taskbar and then a router to go between curr page and other page, with completely different functionality
 //pass in, for now, just the sprite
@@ -20,6 +21,7 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/getpkmn" element={<PkForm/>} />
       <Route path="/customizer" element={<Customized />} />
+      <Route path="/hackhr" element={<Hackhour />} />
       </Routes>
     {/* <PkForm/>
     <Customized/> */}

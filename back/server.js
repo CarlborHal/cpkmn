@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT;
 import router from './routes.js'
 app.use(express.json());
+//so its allowing requests from 5173
 app.use(cors({origin:'http://localhost:5173', credentials:true }))
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
