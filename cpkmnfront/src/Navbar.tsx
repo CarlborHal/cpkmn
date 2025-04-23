@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import HektarB from './hektarbattle.mp3';
+// import HektarB from './hektarbattle.mp3';
 
 export default function Navbar() {
   console.log('navbar rendered');
@@ -10,7 +10,8 @@ export default function Navbar() {
       <Link to="/customizer">Customized Pokemon</Link>
       <button>Switch Music</button>
       <audio controls loop>
-        <source src ='HektarB' type="audio/mpeg"/>
+      <source src ='/hektarbattle.mp3' type="audio/mpeg"/>
+      <source src ='/hektarexplore.mp3' type="audio/mpeg"/>
       </audio>
     </nav>
 
