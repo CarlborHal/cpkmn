@@ -1,8 +1,9 @@
 export default function Login() {
 
-    const handleSubmit = async (e: SubmitEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>
+    ) => {
         e.preventDefault()
-        const formData = new FormData(e.target);
+        const formData = new FormData(e.currentTarget);
         const formObject = Object.fromEntries(formData.entries())
         console.log(formObject)
         await fetch('http://localhost:3000/login',{

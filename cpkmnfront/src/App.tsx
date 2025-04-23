@@ -18,8 +18,8 @@ function App() {
       <Routes>
       <Route path="/signup" element={<Signup/>} />
       <Route path="/login" element={<Login/>} />
-        <Route path="/getpkmn" element={<PkForm/>} />
-        <Route path="/customizer" element={<Customized />} />
+      <Route path="/getpkmn" element={<PkForm/>} />
+      <Route path="/customizer" element={<Customized />} />
       </Routes>
     {/* <PkForm/>
     <Customized/> */}
