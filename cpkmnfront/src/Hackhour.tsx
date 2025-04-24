@@ -58,3 +58,46 @@ export default function Hackhour() {
     </div>
   );
 }
+
+
+
+// which extends html element
+
+//  HTML Form element: vanilla typescript
+//interface HTMLFormElement extends HTMLElement {
+//   readonly elements: HTMLFormControlsCollection;
+//   readonly length: number;
+  
+//   name: string;
+//   method: string;
+//   action: string;
+//   enctype: string;
+//   target: string;
+//   noValidate: boolean;
+//   autocomplete: string;
+//   acceptCharset: string;
+
+//   submit(): void;
+//   reset(): void; 
+//   checkValidity(): boolean;
+//   reportValidity(): boolean;
+// }
+//    interface FormEvent<T = Element> extends SyntheticEvent<T> {}
+//    interface SyntheticEvent<T = Element, E = Event> extends BaseSyntheticEvent<E, EventTarget & T, EventTarget> {}
+//    interface BaseSyntheticEvent<E = object, C = any, T = any> {
+//   nativeEvent: E;
+//   currentTarget: C;
+//   target: T;
+//   bubbles: boolean;
+//   cancelable: boolean;
+//   defaultPrevented: boolean;
+//   eventPhase: number;
+//   isTrusted: boolean;
+//   preventDefault(): void;
+//   isDefaultPrevented(): boolean;
+//   stopPropagation(): void;
+//   isPropagationStopped(): boolean;
+//   persist(): void;
+//   timeStamp: number;
+//   type: string;
+// }
