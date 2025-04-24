@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function Hackhour() {
   const [num, setNum] = useState<number>(0);
   const [arr, setArr] = useState<string>('');
-  const [ans, setAns]= useState<boolean | null| string>('placeholder')
+  const [ans, setAns]= useState<boolean | string>('placeholder')
 
   function handleChange(event:React.FormEvent<HTMLFormElement>) {
     const target = event.target as HTMLInputElement;
@@ -24,6 +24,10 @@ export default function Hackhour() {
     const realNum = Number(num) as number;
     const realArr:number[]=JSON.parse(arr as string)
 
+//getting typing to work
+//dont test recursive stuff in your browser
+//form events again, and using state to track variables was very difficult
+//also leads to a lot of confusion: i have to juggle multiple types and only render variables whne they are a specific type which really confsued me
 
 
     // console.log(Array.isArray(realArr))

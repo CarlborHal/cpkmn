@@ -20,8 +20,6 @@ export default function Customized() {
 //map with customPkmn, each one will have image, moves and name
   return (
     <div>
-      Hello, world!
-      {piruk.length}
       {piruk.map( (elem, index) =>{
       return <Custompkmn pokemon = {elem} key = {index}/>
       })}
