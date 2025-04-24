@@ -10,7 +10,6 @@ export default function Hackhour() {
     if (target.id === 'number') {
         setNum(Number(target.value))
 
-
     } else if (target.id === 'array') {
 
         setArr(target.value)

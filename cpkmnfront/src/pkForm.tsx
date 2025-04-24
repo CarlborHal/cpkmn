@@ -18,7 +18,6 @@ export default function PkForm() {
     );
     const pkmnJSON = await pkmn.json();
     const pkmnJSONclean = pkmnJSON as pkmnDetails;
-
     //components MUST BE CAPITALIZED IT IS NOT A CONVENTION
     const picks:{[key:string]: string} = {
       sprite : pkmnJSONclean.sprites.front_default,
@@ -27,8 +26,6 @@ export default function PkForm() {
     setData(picks);
     console.log(picks)
   }
-
-
   return (
 <div>
 { /* submit to backend */}
