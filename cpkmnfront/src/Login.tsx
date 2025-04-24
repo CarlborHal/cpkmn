@@ -14,8 +14,8 @@ export default function Login() {
         })
     }
   return (
-    <div>
-      hello login
+    <div> 
+      Login
       <form onSubmit = {handleSubmit}>
         <input type='text' name="username" id="username"></input>
         <input type='text' name="password" id="password"></input>
