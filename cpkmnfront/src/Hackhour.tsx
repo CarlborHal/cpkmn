@@ -1,10 +1,20 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 
+type ansActionObject = {type :'false'} | {type:'true'}|{type: null};
 export default function Hackhour() {
   const [num, setNum] = useState<number>(0);
   const [arr, setArr] = useState<string>('');
-  const [ans, setAns]= useState< string>('this bolded text will be (hopefully) replaced by true/false based on algo output')
-
+  // const [ans, setAns]= useState< string>('this bolded text will be (hopefully) replaced by true/false based on algo output')
+  const [ans, dispatch]=useReducer(reducer,'this is a placeholder')
+  function reducer(_state: any, action:ansActionObject){
+    switch(action.type){
+      case 'true':
+      return 'dispatcher says true'
+    
+    case 'false':
+      return 'dispatcher says false'
+  }
+}
   function handleChange(event:React.FormEvent<HTMLFormElement>) {
     const target = event.target as HTMLInputElement;
     if (target.id === 'number') {
@@ -27,22 +37,24 @@ export default function Hackhour() {
 //dont test recursive stuff in your browser
 //form events again, and using state to track variables was very difficult
 //also leads to a lot of confusion: i have to juggle multiple types and only render variables whne they are a specific type which really confsued me
-
-
     // console.log(Array.isArray(realArr))
     // const newArr= realArr.trim()
     let l= 0;
     let r = realArr.length-1;
     console.log(realArr)
+    const action={type:null} as ansActionObject;
     while (l<=r){
         const m = Math.floor((l+r)/2)
-        if (realArr[m]===realNum)
-            { setAns('true')
+        if (realArr[m]===realNum){
+          action.type='true';
+            { dispatch(action)
                 return}
+        }
         else if (realArr[m]>realNum) r=m-1//5 looking for 2, move r
         else if (realArr[m]<realNum) l=m+1
     }
-    setAns('false')
+    action.type='false';
+    dispatch(action)
     return
   }
   return (
