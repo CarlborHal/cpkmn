@@ -17,7 +17,13 @@ controller.getPokemon = async (req, res, next) => {
     // console.log(res.locals.pkmn);
     return next();
   } catch {
-    console.log('error on accessing database');
+    
+    return next({
+    log: 'problem accessing pokeApi',
+    status: 500,
+    message: { err: 'problem accessing pokeApi' },
+  });
+
   }
 };
 
@@ -102,17 +108,25 @@ controller.loginUser = async (req, res, next) => {
   const text = 'SELECT hashedpw FROM passwords WHERE username = ($1)';
   const values = [req.body.username];
   const toCompare = await pool.query(text, values);
+  // console.log(toCompare);
+  // console.log(req.body.username);
 //   console.log(toCompare.rows[0].hashedpw);
 
   await bcrypt.compare(
     req.body.password,
     toCompare.rows[0].hashedpw,
     function (err, result) {
-    //   console.log(result);
-      if (result) {
+
+      if (result===true) {
+        console.log(result);
         return next();
       } else {
-        return next(err);
+          console.log(result,'error time');
+        return next({
+          log: 'invalid credentials',
+          status: 200,
+          message: { err: 'invalid credentials' },
+        });
       }
     }
   );
@@ -121,7 +135,7 @@ controller.loginUser = async (req, res, next) => {
 
 controller.setCookie = async (req, res, next) =>{
     console.log(req.body.username)
-    res.cookie('user',String(req.body.username), {httpOnly:true})
+    res.cookie('user',req.body.username, {httpOnly:true})
     // res.setHeader('Access-Control-Allow-Credentials', 'true')
 
     return next()
