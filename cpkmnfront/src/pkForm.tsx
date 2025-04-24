@@ -18,11 +18,7 @@ export default function PkForm() {
     );
     const pkmnJSON = await pkmn.json();
     const pkmnJSONclean = pkmnJSON as pkmnDetails;
-    
-    //awaits dont return strings as i thought, or even normal objects. Response type god dammit struggled a lot
-    //and therefore we dont' use json.parse we use object.json();
-    // console.log(pkmnJSON)
-    //react router
+
     //components MUST BE CAPITALIZED IT IS NOT A CONVENTION
     const picks:{[key:string]: string} = {
       sprite : pkmnJSONclean.sprites.front_default,
@@ -32,11 +28,7 @@ export default function PkForm() {
     console.log(picks)
   }
 
-  // console.log(data);
-  // fetch is working. now:
-  //make state object to track an array, where pokemon goes
-  //and then map that into components, each containing:
-  //sprite
+
   return (
 <div>
 { /* submit to backend */}
@@ -52,13 +44,4 @@ export default function PkForm() {
   </div>
 );
 }
-
-// const MarketsDisplay = props => (
-//   <div className="displayBox">
-//     <h4>Markets</h4>
-//     <div className="allMarkets">
-//       {props.marketList.map((market, idx) => marketMaker(market, idx, props))}
-//     </div>
-//   </div>
-// );
 

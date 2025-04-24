@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function Hackhour() {
   const [num, setNum] = useState<number>(0);
   const [arr, setArr] = useState<string>('');
-  const [ans, setAns]= useState<boolean | string>('placeholder')
+  const [ans, setAns]= useState< string>('this bolded text will be (hopefully) replaced by true/false based on algo output')
 
   function handleChange(event:React.FormEvent<HTMLFormElement>) {
     const target = event.target as HTMLInputElement;
@@ -38,12 +38,12 @@ export default function Hackhour() {
     while (l<=r){
         const m = Math.floor((l+r)/2)
         if (realArr[m]===realNum)
-            { setAns(true)
+            { setAns('true')
                 return}
         else if (realArr[m]>realNum) r=m-1//5 looking for 2, move r
         else if (realArr[m]<realNum) l=m+1
     }
-    setAns(false)
+    setAns('false')
     return
   }
   return (
@@ -53,8 +53,9 @@ export default function Hackhour() {
       <input type='text' name='array' id = 'array' placeholder ='array'></input>
       <button type='submit'>submit</button>
       </form>
-      {String(ans)}
-
+      <div>FindinOrganizedSet</div>
+      <b>{ans}
+      </b>
     </div>
   );
 }
