@@ -6,7 +6,7 @@ export default function Hackhour() {
   const [arr, setArr] = useState<string>('');
   // const [ans, setAns]= useState< string>('this bolded text will be (hopefully) replaced by true/false based on algo output')
   const [ans, dispatch]=useReducer(reducer,'this is a placeholder')
-  function reducer(_state: any, action:ansActionObject){
+  function reducer(_state, action:ansActionObject){
     switch(action.type){
       case 'true':
       return 'dispatcher says true'
